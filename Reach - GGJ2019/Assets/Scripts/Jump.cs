@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-
+    public Animator anim;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
     Rigidbody body;
@@ -14,13 +14,26 @@ public class Jump : MonoBehaviour
         body = GetComponent<Rigidbody>();
 
     }
-
+    private void Start()
+    {
+        anim = gameObject.GetComponent<Animator>();
+    }
     void Update(){
-
+        if (Input.GetButton("Jump"))
+        {
+            anim.SetBool("isJumping", true);
+        }
         if (body.velocity.y < 0){
+            anim.SetBool("isJumping", true);
             body.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         } else if (body.velocity.y > 0 && !Input.GetButton("Jump")){
+            anim.SetBool("isJumping", true);
             body.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+        else if(body.velocity.y == 0)
+        {
+            anim.SetBool("isJumping", false);
+
         }
 
     }

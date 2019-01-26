@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator anim;
     public BoxCollider legs;
 
     [Range(1, 20)]
@@ -14,6 +15,10 @@ public class PlayerController : MonoBehaviour
 
     public float distToGround;
 
+    private void Start()
+    {
+        anim = gameObject.GetComponent<Animator>();
+    }
 
     //private void Update() {
     //    //grounded = Physics.BoxCast(boxCol.bounds.center, boxCol.bounds.extents, Vector3.down, transform.rotation, Mathf.Infinity, lm);
@@ -28,7 +33,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown ("Jump") && PlayerLegs.instance.IsGrounded() == true) {
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
         }
-
+        if(Input.GetAxis("Horizontal") != 0)
+        {
+            anim.SetBool("isRunning", true);
+        }else anim.SetBool("isRunning", false);
         //grounded = Mathf.Abs(GetComponent<Rigidbody>().velocity.y) < 0.5f;
 
         this.transform.Translate(Input.GetAxis("Horizontal") * runSpeed * Time.deltaTime, 0, 0);
