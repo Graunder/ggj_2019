@@ -9,7 +9,7 @@ public class adidas : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("lerping");
-            GameMaster.instance.IncreaseSpatial(false);
+          //  GameMaster.instance.IncreaseSpatial(false);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -17,7 +17,7 @@ public class adidas : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("lerping h");
-            GameMaster.instance.IncreaseSpatial(true);
+          //  GameMaster.instance.IncreaseSpatial(true);
         }
     }
 }
