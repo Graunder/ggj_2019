@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public BoxCollider legs;
 
-    [Range(1, 10)]
+    [Range(1, 20)]
     public float jumpVelocity;
 
     [Range(1, 10)]

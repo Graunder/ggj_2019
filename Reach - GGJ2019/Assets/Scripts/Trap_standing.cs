@@ -37,7 +37,7 @@ public class Trap_standing : MonoBehaviour
     private IEnumerator Countdown(int seconds) {
         int counter = seconds;
         while (counter > 0) {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             counter--;
         }
         stuffz();
