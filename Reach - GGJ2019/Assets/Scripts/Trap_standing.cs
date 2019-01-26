@@ -19,28 +19,43 @@ public class Trap_standing : MonoBehaviour
 
     //}
 
-    bool TimerStarted = false;
+    //bool TimerStarted = false;
 
     void OnTriggerEnter(Collider trigger) {
-        if (trigger.CompareTag("Player") && !TimerStarted) {
+        if (trigger.CompareTag("Player")) {
 
-            TimerStarted = true;
+            StartCoroutine(Countdown(3));
 
         }
     }
 
-    private float _timer = 0f;
-    public float TimeIWantInSeconds = 0.05f;
-
-    void Update() {
-        if (TimerStarted) {
-            _timer += Time.deltaTime;
-
-            if (_timer >= TimeIWantInSeconds) {
-                Rigidbody trapRigidbody = trap.GetComponent<Rigidbody>();
-                trapRigidbody.isKinematic = false;
-            }
-        }
+    void stuffz() {
+        Rigidbody trapRigidbody = trap.GetComponent<Rigidbody>();
+        trapRigidbody.isKinematic = false;
     }
+
+    private IEnumerator Countdown(int seconds) {
+        int counter = seconds;
+        while (counter > 0) {
+            yield return new WaitForSeconds(1);
+            counter--;
+        }
+        stuffz();
+
+    }
+
+    //private float _timer = 0f;
+    //public float TimeIWantInSeconds = 0.05f;
+
+    //void Update() {
+    //    if (TimerStarted) {
+    //        _timer += Time.deltaTime;
+
+    //        if (_timer >= TimeIWantInSeconds) {
+    //            Rigidbody trapRigidbody = trap.GetComponent<Rigidbody>();
+    //            trapRigidbody.isKinematic = false;
+    //        }
+    //    }
+    //}
 
 }
