@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class went : MonoBehaviour
 {
-    [Range(-50, 50)]
+    [Range(-350, 350)]
     public int forceX;
-    [Range(-50, 50)]
+    [Range(-350, 350)]
     public int forceY;
 
     private void OnTriggerStay(Collider other) {
