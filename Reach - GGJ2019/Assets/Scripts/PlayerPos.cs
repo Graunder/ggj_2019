@@ -24,5 +24,14 @@ public class PlayerPos : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Kill")
+        {
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        }
+    }
 
 }
