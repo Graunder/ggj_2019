@@ -19,8 +19,9 @@ public class PlayerPos : MonoBehaviour
 
         if (other.gameObject.tag == "Kill") {
 
+            GameMaster.instance.setTime();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
+            
         }
 
     }
@@ -28,7 +29,7 @@ public class PlayerPos : MonoBehaviour
     {
         if (other.gameObject.tag == "Kill")
         {
-
+            GameMaster.instance.setTime();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
