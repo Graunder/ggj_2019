@@ -24,7 +24,7 @@ public class Trap_standing : MonoBehaviour
     void OnTriggerEnter(Collider trigger) {
         if (trigger.CompareTag("Player")) {
 
-            StartCoroutine(Countdown(3));
+            StartCoroutine(Countdown(1));
 
         }
     }
