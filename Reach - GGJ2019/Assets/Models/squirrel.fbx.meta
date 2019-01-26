@@ -4,11 +4,53 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Armature
+    100004: Bone
+    100006: Bone.001
+    100008: Bone.001_end
+    100010: Bone.002
+    100012: Bone.002_end
+    100014: Bone.003
+    100016: Bone.003_end
+    100018: Bone.004
+    100020: Bone.004_end
+    100022: Bone.005
+    100024: Bone.005_end
+    100026: Bone.006
+    100028: Bone.007
+    100030: Bone.008
+    100032: Bone.009
+    100034: Bone.010
+    100036: Bone.011
+    100038: Bone.011_end
+    100040: Sphere
     400000: //RootNode
+    400002: Armature
+    400004: Bone
+    400006: Bone.001
+    400008: Bone.001_end
+    400010: Bone.002
+    400012: Bone.002_end
+    400014: Bone.003
+    400016: Bone.003_end
+    400018: Bone.004
+    400020: Bone.004_end
+    400022: Bone.005
+    400024: Bone.005_end
+    400026: Bone.006
+    400028: Bone.007
+    400030: Bone.008
+    400032: Bone.009
+    400034: Bone.010
+    400036: Bone.011
+    400038: Bone.011_end
+    400040: Sphere
     2100000: sq
     2100002: sq_glow
     2300000: //RootNode
+    2300002: Sphere
     3300000: //RootNode
+    3300002: Sphere
     4300000: Sphere
   externalObjects: {}
   materials:
