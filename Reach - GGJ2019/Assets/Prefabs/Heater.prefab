@@ -4712,7 +4712,7 @@ GameObject:
   - component: {fileID: 513000515}
   m_Layer: 0
   m_Name: Heater
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9502,7 +9502,7 @@ GameObject:
   - component: {fileID: 783506289}
   m_Layer: 0
   m_Name: Heater (1)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
