@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public BoxCollider legs;
+
     [Range(1, 10)]
     public float jumpVelocity;
 
@@ -12,20 +13,6 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
 
     public float distToGround;
-    [SerializeField]
-    public bool grounded = true;
-
-    private void OnTriggerStay(Collider other) {
-        if (other.transform.CompareTag("ground")) {
-            grounded = true;
-        }
-
-    }
-    private void OnTriggerExit(Collider other) {
-        if (other.transform.CompareTag("ground")) {
-            grounded = false;
-        }
-    }
 
 
     //private void Update() {
@@ -38,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
 
-        if (Input.GetButtonDown ("Jump") && grounded == true) {
+        if (Input.GetButtonDown ("Jump") && PlayerLegs.instance.IsGrounded() == true) {
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
         }
 
