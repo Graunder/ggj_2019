@@ -19,14 +19,14 @@ public class Jump : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
     }
     void Update(){
-        if (Input.GetButton("Jump"))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             anim.SetBool("isJumping", true);
         }
         if (body.velocity.y < 0){
             anim.SetBool("isJumping", true);
             body.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        } else if (body.velocity.y > 0 && !Input.GetButton("Jump")){
+        } else if (body.velocity.y > 0 && !Input.GetKey(KeyCode.UpArrow)) {
             anim.SetBool("isJumping", true);
             body.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
