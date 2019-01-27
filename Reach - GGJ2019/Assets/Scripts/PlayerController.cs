@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
 
-        if (Input.GetKey(KeyCode.UpArrow) && PlayerLegs.instance.IsGrounded() == true) {
+        if (Input.GetButtonDown ("Jump") && PlayerLegs.instance.IsGrounded() == true) {
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
         }
         if(Input.GetAxis("Horizontal") != 0)
