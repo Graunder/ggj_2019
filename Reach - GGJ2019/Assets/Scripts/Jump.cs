@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Jump : MonoBehaviour
 {
@@ -19,14 +20,14 @@ public class Jump : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
     }
     void Update(){
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (CrossPlatformInputManager.GetButton("jump"))
         {
             anim.SetBool("isJumping", true);
         }
         if (body.velocity.y < 0){
             anim.SetBool("isJumping", true);
             body.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        } else if (body.velocity.y > 0 && !Input.GetKey(KeyCode.UpArrow)) {
+        } else if (body.velocity.y > 0 && !CrossPlatformInputManager.GetButton("jump")) {
             anim.SetBool("isJumping", true);
             body.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }

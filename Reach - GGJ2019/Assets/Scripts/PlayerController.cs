@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [Range(1, 10)]
     public float runSpeed;
 
+    public float directionX;
     public float distToGround;
 
     private void Start()
@@ -28,19 +30,19 @@ public class PlayerController : MonoBehaviour
 
     //}
 
-    void FixedUpdate(){
+    void FixedUpdate() {
 
-        if (Input.GetKey(KeyCode.UpArrow) && PlayerLegs.instance.IsGrounded() == true) {
+        if (CrossPlatformInputManager.GetButton("jump") && PlayerLegs.instance.IsGrounded() == true) {
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
         }
-        if(Input.GetAxis("Horizontal") != 0)
-        {
+        if (Input.GetAxis("Horizontal") != 0) {
             anim.SetBool("isRunning", true);
-        }else anim.SetBool("isRunning", false);
+        } else anim.SetBool("isRunning", false);
         //grounded = Mathf.Abs(GetComponent<Rigidbody>().velocity.y) < 0.5f;
 
-        this.transform.Translate(Input.GetAxis("Horizontal") * runSpeed * Time.deltaTime, 0, 0);
+        //this.transform.Translate(Input.GetAxis("Horizontal") * runSpeed * Time.deltaTime, 0, 0);
 
+        this.transform.Translate(CrossPlatformInputManager.GetAxis("Horizontal") * runSpeed * Time.deltaTime, 0, 0);
     }
 
 //            if (Input.GetButtonDown("Jump") && grounded == true) {
